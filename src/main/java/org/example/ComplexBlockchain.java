@@ -29,7 +29,7 @@ class Block {
         try {
             int nonce = 12345;
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
-            String input = nonce + index + timestamp + previousHash + data;
+            String input = index + timestamp + previousHash + data + nonce;
             byte[] hashBytes = digest.digest(input.getBytes("UTF-8"));
             StringBuilder hexString = new StringBuilder();
 
@@ -159,7 +159,7 @@ public class ComplexBlockchain {
         String jsonCard1 = gson.toJson(creditCard1);
         creditCardBlockchain.addBlock(jsonCard1);
 
-        creditCard creditCard2 = new creditCard(3215456798754562l, "Cleveland Brown", 456, "Discover", 10.99);
+        creditCard creditCard2 = new creditCard(3215456798754562l, "Cleveland Brown", 684, "Discover", 10.99);
         String jsonCard2 = gson.toJson(creditCard2);
         creditCardBlockchain.addBlock(jsonCard2);
 
@@ -170,7 +170,7 @@ public class ComplexBlockchain {
         String jsonBankRecord1 = gson.toJson(bankRecord1);
         bankRecordBlockchain.addBlock(jsonBankRecord1);
 
-        bankRecord bankRecord2 = new bankRecord(1234, "Glenn Quagmire", "Checking", "Chase", -140);
+        bankRecord bankRecord2 = new bankRecord(1257, "Glenn Quagmire", "Checking", "Chase", -140);
         String jsonBankRecord2 = gson.toJson(bankRecord2);
         bankRecordBlockchain.addBlock(jsonBankRecord2);
 
